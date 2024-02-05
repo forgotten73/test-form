@@ -5,15 +5,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import helper.ConfProperties;
-import pageObject.Dialog;
 import pageObject.FormPage;
 
-import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     public static FormPage formPage;
-    public static Dialog dialog;
     public static WebDriver driver;
 
     public static String userName;
@@ -52,7 +49,6 @@ public class BaseTest {
         System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
         driver = new ChromeDriver();
         formPage = new FormPage(driver);
-        dialog = new Dialog(driver);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(ConfProperties.getProperty("demoqapage"));
