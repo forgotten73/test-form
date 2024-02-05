@@ -31,6 +31,7 @@ public class PageTest extends BaseTest {
         formPage.selectState(userState);
         formPage.selectCity(userCity);
         formPage.clickSubmit();
+        Assertions.assertTrue(formPage.modalIsOpen("Thanks for submitting the form"), "wrong modal title");
         outputData = formPage.findTabularData();
         Assertions.assertEquals(outputData.get(0), userName + " " + userSurname, "wrong name");
         Assertions.assertEquals(outputData.get(1), userEmail, "wrong email");

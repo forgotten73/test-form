@@ -159,6 +159,11 @@ public class FormPage {
         submitButton.sendKeys(Keys.ENTER);
         return this;
     }
+    @Step("Check title on modal")
+    public boolean modalIsOpen(String title) {
+        WebElement modalTitle = driver.findElement(By.className("modal-title"));
+        return modalTitle.getText().trim().equals(title);
+    }
     @Step("Find tabular data")
     public List<String> findTabularData() {
         List<WebElement> tdList = driver.findElements(By.xpath(tdItem));
